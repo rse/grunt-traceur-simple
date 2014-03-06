@@ -36,8 +36,8 @@ var path  = require("path");
 var chalk = require("chalk");
 
 /*  external paths to Traceur  */
-var traceurCommandPath = path.resolve("../node_modules/traceur/src/node/command.js");
-var traceurRuntimePath = path.resolve("../node_modules/traceur/bin/traceur-runtime.js");
+var traceurCommandPath = path.resolve(path.join(__dirname, "../node_modules/traceur/src/node/command.js"));
+var traceurRuntimePath = path.resolve(path.join(__dirname, "../node_modules/traceur/bin/traceur-runtime.js"));
 
 /*  export the Grunt task  */
 module.exports = function (grunt) {

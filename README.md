@@ -41,7 +41,7 @@ grunt.loadNpmTasks("grunt-traceur-simple");
   usually found in the path `bin/traceur-runtime.js` of
   a Traceur distribution. The default is the path to the
   `traceur-runtime.js` file of the dependent `traceur` module. Use
-  `path.resolve("node_modules/traceur/bin/traceur-runtime.js")` if you
+  `path.resolve(path.join(__dirname, "node_modules/traceur/bin/traceur-runtime.js"))` if you
   want to use a peer-installed Traceur.
 
 - `traceurCommand`:
@@ -49,7 +49,7 @@ grunt.loadNpmTasks("grunt-traceur-simple");
   or distribution or the path to the `src/node/command.js`
   file of a Traceur distribution. The default is the path to
   the `command.js` file of the dependent `traceur` module. Use
-  `path.resolve("node_modules/traceur/src/node/command.js")` if you want
+  `path.resolve(path.join(__dirname, "node_modules/traceur/src/node/command.js"))` if you want
   to use a peer-installed Traceur.
 
 - `traceurOptions`:
