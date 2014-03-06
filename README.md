@@ -1,8 +1,10 @@
 
 # grunt-traceur-simple
 
-Grunt task that uses the Google Traceur compiler to transpile
-source files from ECMAScript 6 to ECMAScript 5 syntax.
+Grunt task that uses the Google Traceur compiler to transpile source
+files from ECMAScript 6 to ECMAScript 5 syntax. It supports the passing
+of arbitrary Traceur options and the use of either the dependent Traceur
+version of an arbitrary peer-installed Traceur version.
 
 <p/>
 <img src="https://nodei.co/npm/grunt-traceur-simple.png?downloads=true&stars=true" alt=""/>
