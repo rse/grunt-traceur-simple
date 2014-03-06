@@ -1,4 +1,2 @@
-.lvimrc
-.ackrc
-.jshintrc
 .gitignore
+node_modules
