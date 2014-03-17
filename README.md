@@ -4,7 +4,11 @@
 Grunt task that uses the Google Traceur compiler to transpile source
 files from ECMAScript 6 to ECMAScript 5 syntax. It supports the passing
 of arbitrary Traceur options and the use of either the dependent Traceur
-version of an arbitrary peer-installed Traceur version.
+version or an arbitrary peer-installed Traceur version.
+
+The independence of the Traceur internals (which options are supported)
+and the independence of the Traceur version is _the_ killer feature of this
+Grunt plugin -- in contrast to similar Grunt Traceur integration plugins.
 
 <p/>
 <img src="https://nodei.co/npm/grunt-traceur-simple.png?downloads=true&stars=true" alt=""/>
