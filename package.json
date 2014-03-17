@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "chalk":                ">=0.4.0",
+        "shell-quote":          ">=1.4.1",
         "traceur":              ">=0.0.25"
     },
     "peerDependencies": {
