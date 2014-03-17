@@ -64,7 +64,7 @@ module.exports = function (grunt) {
             /*  assemble the Traceur shell command  */
             var cmd = "";
             var sq = function (txt) {
-                if (/["'\s]/.test(txt))
+                if (txt.match(/["'\s]/))
                     return "\"" + txt.replace(/(["\\$`(){}!#&*|])/g, "\\$1") + "\"";
                 else
                     return txt.replace(/([\\$`(){}!#&*|])/g, "\\$1");
