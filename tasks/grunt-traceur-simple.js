@@ -22,9 +22,10 @@
 **  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-/* global require: false */
-/* global module:  false */
-/* global process: false */
+/* global require:   false */
+/* global module:    false */
+/* global process:   false */
+/* global __dirname: false */
 
 /*  Grunt plugin information  */
 var NAME = "traceur";
@@ -34,6 +35,7 @@ var DESC = "Transpiles ECMAScript 6 to ECMAScript 5 with Traceur";
 var exec  = require("child_process").exec;
 var path  = require("path");
 var chalk = require("chalk");
+var quote = require("shell-quote").quote;
 
 /*  external paths to Traceur  */
 var traceurCommandPath = path.resolve(path.join(__dirname, "../node_modules/traceur/src/node/command.js"));
@@ -62,14 +64,15 @@ module.exports = function (grunt) {
 
             /*  assemble the Traceur shell command  */
             var cmd = "";
+            var sq = function (txt) { return quote([ txt ]); };
             if (options.traceurCommand.match(/\.js$/))
-                cmd = process.execPath + " " + options.traceurCommand;
+                cmd = sq(process.execPath) + " " + sq(options.traceurCommand);
             else
-                cmd = options.traceurCommand;
+                cmd = sq(options.traceurCommand);
             if (options.traceurOptions !== "")
                 cmd += " " + options.traceurOptions;
-            cmd += " --out " + f.dest;
-            cmd += " " + f.src.join(" ");
+            cmd += " --out " + sq(f.dest);
+            cmd += " " + f.src.map(function (name) { return sq(name); }).join(" ");
 
             /*  execute the Traceur shell command  */
             exec(cmd, function (error, stdout, stderr) {
