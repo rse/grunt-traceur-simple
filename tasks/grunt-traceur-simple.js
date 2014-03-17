@@ -35,7 +35,6 @@ var DESC = "Transpiles ECMAScript 6 to ECMAScript 5 with Traceur";
 var exec  = require("child_process").exec;
 var path  = require("path");
 var chalk = require("chalk");
-var quote = require("shell-quote").quote;
 
 /*  external paths to Traceur  */
 var traceurCommandPath = path.resolve(path.join(__dirname, "../node_modules/traceur/src/node/command.js"));
@@ -64,7 +63,12 @@ module.exports = function (grunt) {
 
             /*  assemble the Traceur shell command  */
             var cmd = "";
-            var sq = function (txt) { return quote([ txt ]); };
+            var sq = function (txt) {
+                if (/["'\s]/.test(txt))
+                    return "\"" + txt.replace(/(["\\$`(){}!#&*|])/g, "\\$1") + "\"";
+                else
+                    return txt.replace(/([\\$`(){}!#&*|])/g, "\\$1");
+            };
             if (options.traceurCommand.match(/\.js$/))
                 cmd = sq(process.execPath) + " " + sq(options.traceurCommand);
             else
