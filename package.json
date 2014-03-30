@@ -2,7 +2,7 @@
     "name":        "grunt-traceur-simple",
     "homepage":    "http://github.com/rse/grunt-traceur-simple",
     "description": "Grunt Task for ECMAScript 6 to ECMAScript 5 Transpiling with Traceur",
-    "version":     "0.9.3",
+    "version":     "0.9.4",
     "license":     "MIT",
     "author": {
         "name":    "Ralf S. Engelschall",
@@ -29,7 +29,7 @@
     },
     "dependencies": {
         "chalk":                ">=0.4.0",
-        "traceur":              ">=0.0.30"
+        "traceur":              ">=0.0.32"
     },
     "peerDependencies": {
         "grunt":                ">=0.4.4"
