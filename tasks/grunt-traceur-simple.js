@@ -65,9 +65,9 @@ module.exports = function (grunt) {
             var cmd = "";
             var sq = function (txt) {
                 if (txt.match(/["'\s]/))
-                    return "\"" + txt.replace(/(["\\$`(){}!#&*|])/g, "\\$1") + "\"";
+                    return "\"" + txt.replace(/(["\\$`{}!#&*|])/g, "\\$1") + "\"";
                 else
-                    return txt.replace(/([\\$`(){}!#&*|])/g, "\\$1");
+                    return txt.replace(/([\\$`{}!#&*|])/g, "\\$1");
             };
             if (options.traceurCommand.match(/\.js$/))
                 cmd = sq(process.execPath) + " " + sq(options.traceurCommand);
@@ -85,6 +85,7 @@ module.exports = function (grunt) {
                     grunt.log.writeln("transpiling: " + chalk.red(f.dest) + " <- " + chalk.red(f.src.join(" ")));
                     grunt.log.error(error);
                     grunt.log.error(stderr);
+                    grunt.log.error("command was: " + cmd);
                     rc = false;
                 }
                 else {
