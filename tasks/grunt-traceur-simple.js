@@ -67,7 +67,7 @@ module.exports = function (grunt) {
             var sq = function (txt) {
                 if (os.platform === "win32")
                     /*  Windows shell  */
-                    return "\"" + txt.replace(/"/, "\"\"") + "\"";
+                    return "\"" + txt.replace(/"/g, "\"\"") + "\"";
                 else
                     /*  POSIX shell  */
                     return "\"" + txt.replace(/(["\\$`!])/g, "\\$1") + "\"";
