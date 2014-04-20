@@ -33,6 +33,7 @@ var DESC = "Transpiles ECMAScript 6 to ECMAScript 5 with Traceur";
 
 /*  external requirements  */
 var exec  = require("child_process").exec;
+var os    = require("os");
 var path  = require("path");
 var chalk = require("chalk");
 
@@ -64,10 +65,12 @@ module.exports = function (grunt) {
             /*  assemble the Traceur shell command  */
             var cmd = "";
             var sq = function (txt) {
-                if (txt.match(/["'\s]/))
-                    return "\"" + txt.replace(/(["\\$`(){}!#&*|])/g, "\\$1") + "\"";
+                if (os.platform === "win32")
+                    /*  Windows shell  */
+                    return "\"" + txt.replace(/"/, "\"\"") + "\"";
                 else
-                    return txt.replace(/([\\$`(){}!#&*|])/g, "\\$1");
+                    /*  POSIX shell  */
+                    return "\"" + txt.replace(/(["\\$`!])/g, "\\$1") + "\"";
             };
             if (options.traceurCommand.match(/\.js$/))
                 cmd = sq(process.execPath) + " " + sq(options.traceurCommand);
