@@ -9,8 +9,8 @@ module.exports = function(grunt) {
         },
         traceur: {
             options: {
-                includeRuntime: false,
-                traceurOptions: "--experimental"
+                includeRuntime: true,
+                traceurOptions: "--experimental --source-maps"
             },
             "sample": {
                 files: [{
