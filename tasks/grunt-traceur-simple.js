@@ -79,7 +79,7 @@ module.exports = function (grunt) {
             if (options.traceurOptions !== "")
                 cmd += " " + options.traceurOptions;
             cmd += " --out " + sq(f.dest);
-			cmd += options.useScript ? ' --script' : '';
+            cmd += options.useScript ? ' --script' : '';
             cmd += " " + f.src.map(function (name) { return sq(name); }).join(" ");
 
             /*  execute the Traceur shell command  */
