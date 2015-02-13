@@ -72,6 +72,10 @@ grunt.loadNpmTasks("grunt-traceur-simple");
   application. Dependending of the used ECMAScript 6 funtionality
   in the code, this runtime is needed or not.
 
+- `useScript`:
+  Set to `true` to use the --script input format of traceur. (Useful 
+  for no module-syntax). See [Traceur options for compiling](https://github.com/google/traceur-compiler/wiki/Options-for-Compiling)
+
 ## Task Calling
 
 _Run this task with the `grunt traceur` command._
