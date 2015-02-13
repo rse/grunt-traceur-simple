@@ -15,7 +15,7 @@ var f3 = () => { return this }
 
 class Foo {}
 class Bar extends Foo {
-    constructor (foo) { this.foo = foo }
+    constructor (foo) { super(); this.foo = foo }
     method1 () { return this }
     method2 () { return this }
 }
