@@ -76,9 +76,9 @@ module.exports = function (grunt) {
                 cmd = sq(process.execPath) + " " + sq(options.traceurCommand);
             else
                 cmd = sq(options.traceurCommand);
+            cmd += " --out " + sq(f.dest);
             if (options.traceurOptions !== "")
                 cmd += " " + options.traceurOptions;
-            cmd += " --out " + sq(f.dest);
             cmd += " " + f.src.map(function (name) { return sq(name); }).join(" ");
 
             /*  execute the Traceur shell command  */
